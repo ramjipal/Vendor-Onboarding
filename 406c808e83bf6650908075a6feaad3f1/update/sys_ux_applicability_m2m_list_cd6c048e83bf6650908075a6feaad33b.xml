@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_applicability_m2m_list">
+    <sys_ux_applicability_m2m_list action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applicability display_value="Vendor Onboarding Audience">056c048e83bf6650908075a6feaad332</applicability>
+        <list display_value="Open">4d6c048e83bf6650908075a6feaad335</list>
+        <order>0</order>
+        <sys_class_name>sys_ux_applicability_m2m_list</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-06 12:47:25</sys_created_on>
+        <sys_id>cd6c048e83bf6650908075a6feaad33b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Vendor Onboarding" source="x_1821841_vendor_0">406c808e83bf6650908075a6feaad3f1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Vendor Onboarding">406c808e83bf6650908075a6feaad3f1</sys_scope>
+        <sys_update_name>sys_ux_applicability_m2m_list_cd6c048e83bf6650908075a6feaad33b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-06 12:47:25</sys_updated_on>
+    </sys_ux_applicability_m2m_list>
+</record_update>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="DELETE">
+        <canvas display_value="">516c048e83bf6650908075a6feaad378</canvas>
+        <component display_value="List - Simple">2b1c080881e05dc63b917044290b233f</component>
+        <component_props>{"table":"x_1821841_vendor_0_request","fixedQuery":"active=true","listTitle":"All Active Tasks","columns":"","query":"active=true","groupByField":"","hideViewAll":false,"hideHighlightedValues":false,"highlightedValueConfigId":"","hideHighlightContent":false,"highlightContent":{"patterns":[],"color":""},"hideLinks":false,"nrlLandmark":true,"wordWrap":false,"overrideWordWrapUserPref":false,"maxCharLimit":4000,"hideEmptyStateImage":false,"hidePersonalization":false,"hideDotwalk":false,"hideColumnReorder":false,"hideRowSelector":false,"hideColumnGrouping":false,"hideColumnResizing":false,"hideColumnFiltering":false,"hideColumnSorting":false,"hideHeader":false,"hideTitle":false,"hideTitleRowCount":false,"hideLastRefreshedText":false,"hideRefreshButton":false,"hideInlineEditing":false,"refreshRequested":""}</component_props>
+        <h>20</h>
+        <name/>
+        <stored_component/>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-06 12:47:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>916c048e83bf6650908075a6feaad38e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Vendor Onboarding" source="x_1821841_vendor_0">406c808e83bf6650908075a6feaad3f1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Vendor Onboarding">406c808e83bf6650908075a6feaad3f1</sys_scope>
+        <sys_update_name>par_dashboard_widget_916c048e83bf6650908075a6feaad38e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-06 12:47:26</sys_updated_on>
+        <visualization/>
+        <w>48</w>
+        <widget_props/>
+        <x>0</x>
+        <y>15</y>
+    </par_dashboard_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Vendor Onboarding">406c808e83bf6650908075a6feaad3f1</application>
+        <file_path/>
+        <instance_id>aa057a5c3b51a258677f04e0b5e45ac3</instance_id>
+        <instance_name>dev339569</instance_name>
+        <name>par_dashboard_widget_916c048e83bf6650908075a6feaad38e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget"><par_dashboard_widget action="INSERT_OR_UPDATE"><canvas display_value="">516c048e83bf6650908075a6feaad378</canvas><component display_value="List - Simple">2b1c080881e05dc63b917044290b233f</component><component_props>{"table":"x_1821841_vendor_0_request","fixedQuery":"active=true","listTitle":"All Active Tasks","columns":"","query":"active=true","groupByField":"","hideViewAll":false,"hideHighlightedValues":false,"highlightedValueConfigId":"","hideHighlightContent":false,"highlightContent":{"patterns":[],"color":""},"hideLinks":false,"nrlLandmark":true,"wordWrap":false,"overrideWordWrapUserPref":false,"maxCharLimit":4000,"hideEmptyStateImage":false,"hidePersonalization":false,"hideDotwalk":false,"hideColumnReorder":false,"hideRowSelector":false,"hideColumnGrouping":false,"hideColumnResizing":false,"hideColumnFiltering":false,"hideColumnSorting":false,"hideHeader":false,"hideTitle":false,"hideTitleRowCount":false,"hideLastRefreshedText":false,"hideRefreshButton":false,"hideInlineEditing":false,"refreshRequested":""}</component_props><h>20</h><name/><stored_component/><sys_class_name>par_dashboard_widget</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-09-06 12:47:26</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>916c048e83bf6650908075a6feaad38e</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_overrides/><sys_package display_value="Vendor Onboarding" source="x_1821841_vendor_0">406c808e83bf6650908075a6feaad3f1</sys_package><sys_policy/><sys_scope display_value="Vendor Onboarding">406c808e83bf6650908075a6feaad3f1</sys_scope><sys_update_name>par_dashboard_widget_916c048e83bf6650908075a6feaad38e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-09-06 12:47:26</sys_updated_on><visualization/><w>48</w><widget_props/><x>0</x><y>15</y></par_dashboard_widget></record_update>]]></payload>
+        <payload_hash>-1126694157</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>cc6c808e83bf6650908075a6feaad3f5</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-06 12:47:26</sys_created_on>
+        <sys_id>9d6c048e83bf6650908075a6feaad38f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1991f113ab80000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-06 12:47:26</sys_updated_on>
+        <type>PAR Dashboard Widget</type>
+        <update_guid>916c048eaabf66509f0c5e8a9a68028f</update_guid>
+        <update_guid_history>916c048eaabf66509f0c5e8a9a68028f:-1126694157</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">d56c048e83bf6650908075a6feaad3d5</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-06 12:47:27</sys_created_on>
+        <sys_db_object display_value="" name="par_dashboard_widget">par_dashboard_widget</sys_db_object>
+        <sys_id>ad29581ecb34486ba276216380bebd01</sys_id>
+        <sys_metadata>916c048e83bf6650908075a6feaad38e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Vendor Onboarding" source="x_1821841_vendor_0">406c808e83bf6650908075a6feaad3f1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Vendor Onboarding">406c808e83bf6650908075a6feaad3f1</sys_scope>
+        <sys_scope_delete display_value="">1282f5fe5b8f476c84e1100a40929511</sys_scope_delete>
+        <sys_update_name>par_dashboard_widget_916c048e83bf6650908075a6feaad38e</sys_update_name>
+        <sys_update_version display_value="par_dashboard_widget_916c048e83bf6650908075a6feaad38e">9d6c048e83bf6650908075a6feaad38f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-06 12:47:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
