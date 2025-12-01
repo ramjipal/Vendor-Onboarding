@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="cdc1626783ddb210f317acc0deaad378" extends="task" label="Acl test table" max_length="40" name="x_1821841_vendor_0_acl_test_table" type="collection">
+        <element label="Last Name" max_length="40" name="last_name" type="string"/>
+        <element label="First Name" max_length="40" name="first_name" type="string"/>
+    </element>
+</database>

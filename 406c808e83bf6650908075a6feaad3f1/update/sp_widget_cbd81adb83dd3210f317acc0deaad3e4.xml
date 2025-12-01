@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope) {
+  var c = this;
+  c.tableName = "";
+  c.roleSysId = "";
+
+  // Convert true/false/none → symbols
+  c.symbol = function(value) {
+    if (value === "true") return "✔️";
+    if (value === "false") return "✖️";
+    return "➖";
+  };
+
+  c.getAcl = function() {
+    if (!c.tableName || !c.roleSysId) {
+      alert("Please enter both Table Name and Role Sys ID.");
+      return;
+    }
+
+    c.server.get({
+      action: "getAcl",
+      tableName: c.tableName,
+      roleSysId: c.roleSysId
+    }).then(function(response) {
+			
+      if (response && response.data) {
+				console.log(response.data)
+       c.data.result = response.data.result || null;
+				c.data.tableName = c.tableName;
+				c.data.roleSysid = c.roleSysId;
+				
+        if (response.data.error) {
+          alert(response.data.error);
+        }
+      } else {
+				
+        alert("Unexpected server response.");
+      }
+    }, function(error) {
+      alert("Server call failed: " + error);
+    });
+  };
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.acl-checker-widget {
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.acl-result-table {
+    margin-top: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.acl-result-table th {
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.field-table {
+    margin: 0;
+    font-size: 13px;
+}
+
+.field-table td {
+    padding: 3px 6px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>ACL Evaluator</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[
+(function() {
+data.result = null;
+  // Only run when button is clicked and input values exist
+  if (input && input.action === "getAcl" && input.tableName && input.roleSysId) {
+		var aclutil = new x_1821841_vendor_0.ACLEvaluatorUtil();
+    try {
+      data.tableName = input.tableName;
+      data.roleSysId = input.roleSysId;
+			gs.info(data.tableName);
+
+      // CALL your logic function
+      // REPLACE THIS with your Script Include if needed
+      data.result = aclutil.getRoleAclForTable(input.tableName, input.roleSysId);
+
+    } catch (e) {
+      data.error = "Error fetching ACLs: " + e.message;
+      gs.error("ACL widget server script error: " + e.message);
+    }
+  }
+
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-24 09:49:42</sys_created_on>
+        <sys_id>cbd81adb83dd3210f317acc0deaad3e4</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_name>ACL Evaluator</sys_name>
+        <sys_package display_value="Vendor Onboarding" source="x_1821841_vendor_0">406c808e83bf6650908075a6feaad3f1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Vendor Onboarding">406c808e83bf6650908075a6feaad3f1</sys_scope>
+        <sys_update_name>sp_widget_cbd81adb83dd3210f317acc0deaad3e4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-25 06:34:29</sys_updated_on>
+        <template><![CDATA[<div class="acl-checker-widget">
+    <div class="form-group">
+        <label for="tableName">Table Name</label>
+        <input type="text" id="tableName" ng-model="c.tableName" class="form-control" placeholder="Enter table name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="roleSysId">Role Sys ID</label>
+        <input type="text" id="roleSysId" ng-model="c.roleSysId" class="form-control" placeholder="Enter role sys_id" required>
+    </div>
+
+    <button type="button" class="btn btn-primary" ng-click="c.getAcl()">Check ACLs</button>
+
+    <div ng-if="c.data.result">
+        <h4 class="mt-3">ACL Results for {{c.data.tableName}}</h4>
+        <table class="table table-bordered acl-result-table">
+            <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Table Access</th>
+                    <th>All Fields</th>
+                    <th>Field-Level ACLs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Create</td>
+                    <td>{{c.symbol(data.result.create.access)}}</td>
+                    <td>{{c.symbol(data.result.create.all)}}</td>
+                    <td>
+                        <table class="table table-sm table-striped field-table" ng-if="data.result.create.fields">
+                            <tr ng-repeat="(field, value) in data.result.create.fields">
+                                <td>{{field}}</td>
+                                <td>{{c.symbol(value)}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Read</td>
+                    <td>{{c.symbol(data.result.read.access)}}</td>
+                    <td>{{c.symbol(data.result.read.all)}}</td>
+                    <td>
+                        <table class="table table-sm table-striped field-table" ng-if="data.result.read.fields">
+                            <tr ng-repeat="(field, value) in data.result.read.fields">
+                                <td>{{field}}</td>
+                                <td>{{c.symbol(value)}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Write</td>
+                    <td>{{c.symbol(data.result.write.access)}}</td>
+                    <td>{{c.symbol(data.result.write.all)}}</td>
+                    <td>
+                        <table class="table table-sm table-striped field-table" ng-if="data.result.write.fields">
+                            <tr ng-repeat="(field, value) in data.result.write.fields">
+                                <td>{{field}}</td>
+                                <td>{{c.symbol(value)}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Delete</td>
+                    <td>{{c.symbol(data.result.del.access)}}</td>
+                    <td>{{c.symbol(data.result.del.all)}}</td>
+                    <td>
+                        <table class="table table-sm table-striped field-table" ng-if="data.result.del.fields">
+                            <tr ng-repeat="(field, value) in data.result.del.fields">
+                                <td>{{field}}</td>
+                                <td>{{c.symbol(value)}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

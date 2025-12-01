@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="first_name" label="First Name" language="en" table="x_1821841_vendor_0_acl_test_table">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>first_name</element>
+            <help/>
+            <hint/>
+            <label>First Name</label>
+            <language>en</language>
+            <name>x_1821841_vendor_0_acl_test_table</name>
+            <plural>First Names</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-11-25 05:06:00</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>First Name</sys_name>
+            <sys_package display_value="Vendor Onboarding" source="x_1821841_vendor_0">406c808e83bf6650908075a6feaad3f1</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Vendor Onboarding">406c808e83bf6650908075a6feaad3f1</sys_scope>
+            <sys_update_name>sys_documentation_x_1821841_vendor_0_acl_test_table_first_name_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-11-25 05:06:00</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

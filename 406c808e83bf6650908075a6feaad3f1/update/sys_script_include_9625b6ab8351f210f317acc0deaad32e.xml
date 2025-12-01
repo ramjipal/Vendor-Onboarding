@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1821841_vendor_0.ACLEvaluatorUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>ACLEvaluatorUtil</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var ACLEvaluatorUtil = Class.create();
+ACLEvaluatorUtil.prototype = {
+    initialize: function() {
+    },
+	getRoleAclForTable: function(tableName, roleSysId) {
+        var result = {
+            create: {
+                "access": "none",
+                "all": "none",
+				"fields": {}
+            },
+            read: {
+                "access": "none",
+                "all": "none",
+				"fields": {}
+            },
+            write: {
+                "access": "none",
+                "all": "none",
+				"fields": {}
+            },
+            del: {
+                "access": "none",
+                "all": "none",
+				"fields": {}
+            }
+        };
+	var role_table = new GlideRecord("sys_user_role");
+		var isRoleExist = role_table.get(roleSysId);
+		gs.info(isRoleExist);
+		if(isRoleExist == false){
+			return result;
+		}
+        // ---------------- WITH ROLE ----------------
+        var gr = new GlideRecord("sys_security_acl_role");
+        var query = "sys_security_acl.name=" + tableName +
+            "^ORsys_security_acl.nameSTARTSWITH" + tableName + "." +
+            "^sys_user_role=" + roleSysId;
+        gr.addEncodedQuery(query);
+        gr.query();
+        while (gr.next()) {
+            var op = gr.sys_security_acl.operation.toString();
+            var acl_name = gr.sys_security_acl.name.toString();
+            var parts = acl_name.split(".");
+            var field = parts.length > 1 ? parts[1] : "";
+
+            if (op == "create") {
+                if (acl_name == tableName) result.create.access = "true";
+                else if (field == "*") result.create.all = "true";
+                else result.create.fields[field] = "true";
+            }
+
+            if (op == "read") {
+                if (acl_name == tableName) result.read.access = "true";
+                else if (field == "*") result.read.all = "true";
+                else result.read.fields[field] = "true";
+            }
+
+            if (op == "write") {
+                if (acl_name == tableName) result.write.access = "true";
+                else if (field == "*") result.write.all = "true";
+                else result.write.fields[field] = "true";
+            }
+
+            if (op == "delete") {
+                if (acl_name == tableName) result.del.access = "true";
+                else if (field == "*") result.del.all = "true";
+                else result.del.fields[field] = "true";
+            }
+        }
+
+        // ---------------- WITHOUT ROLE ----------------
+	
+        var negation_gr = new GlideRecord("sys_security_acl_role");
+        var negation_query = "sys_security_acl.name=" + tableName +
+            "^ORsys_security_acl.nameSTARTSWITH" + tableName + "." +
+            "^sys_user_role!=" + roleSysId;
+        negation_gr.addEncodedQuery(negation_query);
+        negation_gr.query();
+
+        while (negation_gr.next()) {
+            var op = negation_gr.sys_security_acl.operation.toString();
+            var acl_name = negation_gr.sys_security_acl.name.toString();
+            var parts = acl_name.split(".");
+            var field = parts.length > 1 ? parts[1] : "";
+
+            if (op == "create") {
+                if (acl_name == tableName && result.create.access == "none") result.create.access = "false";
+                else if (field == "*" && result.create.all == "none") result.create.all = "false";
+                else if (!result.create.fields[field]) result.create.fields[field] = "false";
+            }
+
+            if (op == "read") {
+                if (acl_name == tableName && result.read.access == "none") result.read.access = "false";
+                else if (field == "*" && result.read.all == "none") result.read.all = "false";
+                else if (!result.read.fields[field]) result.read.fields[field] = "false";
+            }
+
+            if (op == "write") {
+                if (acl_name == tableName && result.write.access == "none") result.write.access = "false";
+                else if (field == "*" && result.write.all == "none") result.write.all = "false";
+                else if (!result.write.fields[field]) result.write.fields[field] = "false";
+            }
+
+            if (op == "delete") {
+                if (acl_name == tableName && result.del.access == "none") result.del.access = "false";
+                else if (field == "*" && result.del.all == "none") result.del.all = "false";
+                else if (!result.del.fields[field]) result.del.fields[field] = "false";
+            }
+        }
+
+        return result;
+    },
+
+    type: 'ACLEvaluatorUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-25 06:33:02</sys_created_on>
+        <sys_id>9625b6ab8351f210f317acc0deaad32e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ACLEvaluatorUtil</sys_name>
+        <sys_package display_value="Vendor Onboarding" source="x_1821841_vendor_0">406c808e83bf6650908075a6feaad3f1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Vendor Onboarding">406c808e83bf6650908075a6feaad3f1</sys_scope>
+        <sys_update_name>sys_script_include_9625b6ab8351f210f317acc0deaad32e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-25 06:33:02</sys_updated_on>
+    </sys_script_include>
+</record_update>
